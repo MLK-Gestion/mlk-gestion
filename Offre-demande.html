@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>L'offre et la demande | MLK Gestion</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 30px 15px;
+            background: #080808;
+            color: #eeeeee;
+            font-family: Arial, sans-serif;
+        }
+
+        .conteneur {
+            max-width: 760px;
+            margin: auto;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 38px;
+            background: linear-gradient(
+                180deg,
+                #ffffff,
+                #aaaaaa,
+                #eeeeee,
+                #777777
+            );
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .sous-titre {
+            text-align: center;
+            color: #aaaaaa;
+            line-height: 1.6;
+            margin-bottom: 35px;
+        }
+
+        .formulaire {
+            background: #151515;
+            border: 1px solid #555555;
+            border-radius: 15px;
+            padding: 30px;
+        }
+
+        h2 {
+            color: #dddddd;
+            border-bottom: 1px solid #444444;
+            padding-bottom: 12px;
+            margin-top: 30px;
+        }
+
+        label {
+            display: block;
+            margin-top: 20px;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #666666;
+            border-radius: 8px;
+            background: #222222;
+            color: white;
+            font-size: 16px;
+        }
+
+        textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: 2px solid #bbbbbb;
+        }
+
+        .champ-conditionnel {
+            display: none;
+        }
+
+        .consentement {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-top: 25px;
+        }
+
+        .consentement input {
+            width: auto;
+            margin-top: 4px;
+        }
+
+        .consentement label {
+            margin: 0;
+            font-weight: normal;
+            line-height: 1.5;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 16px;
+            margin-top: 30px;
+            border: 1px solid #eeeeee;
+            border-radius: 10px;
+            background: linear-gradient(
+                135deg,
+                #eeeeee,
+                #888888,
+                #ffffff,
+                #777777
+            );
+            color: #111111;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            filter: brightness(1.15);
+        }
+
+        .retour {
+            display: block;
+            text-align: center;
+            color: #bbbbbb;
+            margin-top: 30px;
+            text-decoration: none;
+        }
+
+        .note {
+            font-size: 13px;
+            color: #aaaaaa;
+            line-height: 1.5;
+        }
+
+        #message {
+            margin-top: 20px;
+            text-align: center;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 29px;
+            }
+
+            .formulaire {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="conteneur">
+
+    <h1>L'offre et la demande</h1>
+
+    <p class="sous-titre">
+        Bienvenue sur la plateforme MLK Gestion.
+        <br>
+        Trouvez les bonnes opportunités,
+        les bons partenaires et les bonnes personnes.
+    </p>
+
+    <form class="formulaire" id="formulaireMLK">
+
+        <h2>1. Votre recherche ou votre offre</h2>
+
+        <label for="type">
+            Que souhaitez-vous faire?
+        </label>
+
+        <select id="type" name="type" required>
+            <option value="">Sélectionnez une option</option>
+            <option value="employe">Rechercher des employés</option>
+            <option value="emploi">Rechercher un emploi</option>
+            <option value="service">Rechercher un service</option>
+            <option value="offrir-service">Offrir mes services</option>
+            <option value="contrat">Rechercher un contrat</option>
+            <option value="offrir-contrat">Offrir un contrat</option>
+            <option value="fournisseur">Rechercher un fournisseur</option>
+            <option value="partenaire">Rechercher un partenaire d'affaires</option>
+            <option value="autre">Autre demande ou offre</option>
+        </select>
+
+        <label for="domaine">
+            Domaine d'activité
+        </label>
+
+        <select id="domaine" name="domaine" required>
+            <option value="">Sélectionnez un domaine</option>
+            <option>Construction</option>
+            <option>Transport</option>
+            <option>Entreposage et logistique</option>
+            <option>Manufacturier</option>
+            <option>Commerce</option>
+            <option>Restauration</option>
+            <option>Hôtellerie</option>
+            <option>Informatique</option>
+            <option>Administration</option>
+            <option>Services professionnels</option>
+            <option>Entretien et nettoyage</option>
+            <option>Immobilier</option>
+            <option>Autre</option>
+        </select>
+
+        <label for="ville">
+            Ville
+        </label>
+
+        <input
+            type="text"
+            id="ville"
+            name="ville"
+            placeholder="Exemple : Laval"
+            required
+        >
+
+        <label for="region">
+            Région
+        </label>
+
+        <select id="region" name="region" required>
+            <option value="">Sélectionnez une région</option>
+            <option>Montréal</option>
+            <option>Laval</option>
+            <option>Montérégie</option>
+            <option>Laurentides</option>
+            <option>Lanaudière</option>
+            <option>Capitale-Nationale</option>
+            <option>Chaudière-Appalaches</option>
+            <option>Estrie</option>
+            <option>Centre-du-Québec</option>
+            <option>Mauricie</option>
+            <option>Outaouais</option>
+            <option>Abitibi-Témiscamingue</option>
+            <option>Saguenay–Lac-Saint-Jean</option>
+            <option>Bas-Saint-Laurent</option>
+            <option>Gaspésie–Îles-de-la-Madeleine</option>
+            <option>Côte-Nord</option>
+            <option>Nord-du-Québec</option>
+        </select>
+
+        <div id="sectionSalaire" class="champ-conditionnel">
+
+            <label for="salaire">
+                Salaire offert ou recherché
+            </label>
+
+            <input
+                type="text"
+                id="salaire"
+                name="salaire"
+                placeholder="Exemple : 35 à 40 $/heure"
+            >
+
+            <label for="emploiType">
+                Type d'emploi
+            </label>
+
+            <select id="emploiType" name="emploiType">
+                <option value="">Sélectionnez</option>
+                <option>Permanent</option>
+                <option>Temporaire</option>
+                <option>Temps plein</option>
+                <option>Temps partiel</option>
+                <option>Contractuel</option>
+            </select>
+
+        </div>
+
+        <div id="sectionBudget" class="champ-conditionnel">
+
+            <label for="budget">
+                Budget approximatif
+            </label>
+
+            <input
+                type="text"
+                id="budget"
+                name="budget"
+                placeholder="Exemple : 5 000 $ à 10 000 $"
+            >
+
+        </div>
+
+        <label for="description">
+            Décrivez votre recherche ou votre offre
+        </label>
+
+        <textarea
+            id="description"
+            name="description"
+            placeholder="Expliquez votre besoin dans vos propres mots. Plus vous donnez de détails, plus nous pourrons rechercher des correspondances pertinentes."
+            required
+        ></textarea>
+
+        <h2>2. Vos coordonnées</h2>
+
+        <label for="nom">
+            Nom complet
+        </label>
+
+        <input
+            type="text"
+            id="nom"
+            name="nom"
+            required
+        >
+
+        <label for="entreprise">
+            Nom de l'entreprise (facultatif)
+        </label>
+
+        <input
+            type="text"
+            id="entreprise"
+            name="entreprise"
+        >
+
+        <label for="telephone">
+            Numéro de téléphone
+        </label>
+
+        <input
+            type="tel"
+            id="telephone"
+            name="telephone"
+            required
+        >
+
+        <label for="courriel">
+            Adresse courriel
+        </label>
+
+        <input
+            type="email"
+            id="courriel"
+            name="courriel"
+            required
+        >
+
+        <div class="consentement">
+
+            <input
+                type="checkbox"
+                id="consentement"
+                name="consentement"
+                required
+            >
+
+            <label for="consentement">
+                J'accepte que MLK Gestion utilise les
+                renseignements fournis pour analyser
+                ma demande, rechercher des correspondances
+                et communiquer avec moi à ce sujet.
+                Mes coordonnées ne seront pas publiées.
+            </label>
+
+        </div>
+
+        <p class="note">
+            L'utilisation du formulaire est gratuite.
+            Les conditions d'une éventuelle mise en relation
+            payante seront présentées séparément.
+        </p>
+
+        <button type="submit">
+            Soumettre ma demande
+        </button>
+
+        <p id="message" role="status"></p>
+
+    </form>
+
+    <a href="index.html" class="retour">
+        ← Retour à l'accueil
+    </a>
+
+</div>
+
+<script>
+
+    const type = document.getElementById("type");
+    const sectionSalaire = document.getElementById("sectionSalaire");
+    const sectionBudget = document.getElementById("sectionBudget");
+
+    type.addEventListener("change", function() {
+
+        sectionSalaire.style.display = "none";
+        sectionBudget.style.display = "none";
+
+        if (
+            type.value === "employe" ||
+            type.value === "emploi"
+        ) {
+            sectionSalaire.style.display = "block";
+        }
+
+        if (
+            type.value === "service" ||
+            type.value === "offrir-service" ||
+            type.value === "contrat" ||
+            type.value === "offrir-contrat" ||
+            type.value === "fournisseur"
+        ) {
+            sectionBudget.style.display = "block";
+        }
+
+    });
+
+    document.getElementById("formulaireMLK")
+        .addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+            document.getElementById("message").textContent =
+                "Le formulaire fonctionne! " +
+                "La transmission sécurisée des demandes " +
+                "sera activée lors de la prochaine étape.";
+
+        });
+
+</script>
+
+</body>
+</html>
